@@ -35,6 +35,31 @@ while ejecutando:
                     print(f"Ingreso registrado, se han ocupado {ingreso} de sitios")
             except ValueError:
                 print("Error: debe ingresar un número válido")
+    #opcion 3
+    elif opcion == 3:
+        print(f"\n-- registrar salida (vehículos o sitios ocupados: {sitios_ocupados})")
+        if sitios_ocupados == 0:
+            print("No hay vehículos registrados en el camping actualmente")
+        else:
+            try:
+                salida = int(input("¿Cuantos vehículos se retiran?"))
+                if salida <= 0:
+                    print(f"Error: la cantidad a retirar debe ser mayor a 0")
+                elif salida > sitios_ocupados:
+                    print(f"Error: no se pueden retirar más de {sitios_ocupados} vehículos")
+                else:
+                    sitios_ocupados -= salida
+                    print(f"Salida registrada, se han liberado {salida} sitios")
+            except ValueError:
+                print("Error: Debe ingresar un número entero válido")
+    #opcion 4
+    elif opcion == 4:
+        porcentaje_ocupacion = (sitios_ocupados / capacidad_maxima) * 100
+        print(f"\n[ESTADO] Ocupación actual: {sitios_ocupados}/{capacidad_maxima} sitios")
+        print(f"[ESTADO] El camping esta al {porcentaje_ocupacion:.1f}% de su capacidad")
+    elif opcion == 5:
+        print("Cerrando el sistema")
+        ejecutando = False
     else:
         print("Opción fuera de rango")
         
